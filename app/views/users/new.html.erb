@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>New User</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <% if @user.errors.any? %>
+        <div class="col-md-6">
+          <h3><%= pluralize(@user.errors.count, 'error') %> prevented these changes.</h3>
+          <ul>
+            <% @user.errors.each do |attribute, errors| %>
+                <li><%= attribute.capitalize %> - <%= errors %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= form_for @user, method: :post do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

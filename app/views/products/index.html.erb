@@ -4,6 +4,6 @@
       <div class="col-md-3">
         <%= link_to(product.name, product_path(product)) %>
         <%= product.description %>
-        <%= product.price_in_cents %>
+        <%= number_to_currency(product.price_in_dollars) %>
       </div>
   <% end %></div>

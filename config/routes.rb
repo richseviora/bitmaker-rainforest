@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/create'
+
   # Should always be plural resources and plural objects, otherwise will fail.
   root 'products#index'
   resources :products
+  resources :users, only: [:create, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
