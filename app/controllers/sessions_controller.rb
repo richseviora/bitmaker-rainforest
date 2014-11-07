@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to products_path, notice: 'Logged In!'
     else
+      flash.now[:error] = 'Incorrect User/Password'
       render :new
     end
   end
