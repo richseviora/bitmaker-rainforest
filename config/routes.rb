@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+
+
   # Should always be plural resources and plural objects, otherwise will fail.
   root 'products#index'
-  resources :products
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy]
+  end
   resources :users, only: [:create, :new]
   resources :sessions, only: [:create, :new, :destroy]
 
