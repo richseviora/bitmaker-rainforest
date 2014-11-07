@@ -1,2 +1,9 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<%= content_tag :div, link_to('New Product', new_product_path, class: 'col-md-12'), class: 'row' %>
+<div class="row">
+  <% @products.each do |product| %>
+      <div class="col-md-3">
+        <%= link_to(product.name, product_path(product)) %>
+        <%= product.description %>
+        <%= product.price_in_cents %>
+      </div>
+  <% end %></div>
