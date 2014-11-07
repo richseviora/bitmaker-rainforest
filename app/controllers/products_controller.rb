@@ -36,8 +36,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(post_params)
-    if @product
+    # Because I'm validating, I must first create a new object, and then attempt to save it.
+    @product = Product.new(post_params)
+    if @product.save
       redirect_to products_path
     else
       render :new

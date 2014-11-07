@@ -1,9 +1,23 @@
 <%= form_for @product do |f| %>
-    <%= label(@product, :name) %>
-    <%= f.text_field(:name) %>
-    <%= label(@product, :description) %>
-    <%= f.text_field(:description) %>
-    <%= label(@product, :price_in_cents) %>
-    <%= f.number_field :price_in_cents %>
-    <%= f.submit %>
+    <div class="row">
+    <% if @product.errors.any? %>
+        <div class="col-md-6">
+          <h3><%= pluralize(@product.errors.count, 'error') %> prevented these changes.</h3>
+          <ul>
+            <% @product.errors.each do |attribute, errors| %>
+                    <li><%= attribute.capitalize %> - <%= errors %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+      <div class="col-md-6">
+      <%= label(@product, :name) %>
+      <%= f.text_field(:name, class: 'form-control') %>
+      <%= label(@product, :description) %>
+      <%= f.text_field(:description, class: 'form-control') %>
+      <%= label(@product, :price_in_cents) %>
+      <%= f.number_field :price_in_cents, class: 'form-control' %>
+      <%= f.submit %>
+      </div>
+    </div>
 <% end %>
