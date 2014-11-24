@@ -13,28 +13,28 @@
 
 ActiveRecord::Schema.define(version: 20141110151057) do
 
-  create_table "products", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "price_in_cents"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'products', force: true do |t|
+    t.string 'name'
+    t.text 'description'
+    t.integer 'price_in_cents'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "reviews", force: true do |t|
-    t.text     "comment"
-    t.integer  "product_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'reviews', force: true do |t|
+    t.text 'comment'
+    t.integer 'product_id'
+    t.integer 'user_id'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
+  create_table 'users', force: true do |t|
+    t.string 'email'
+    t.string 'password_digest'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
+    t.string 'name'
   end
 
 end
