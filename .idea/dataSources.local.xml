@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails Rainforest: development" uuid="a6e7fa5d-e0be-482a-b626-bb7866ec1ffc">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails Rainforest: development" uuid="bcaa9d92-4d58-4504-aa71-476d28357db5">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
