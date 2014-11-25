@@ -8,16 +8,17 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    # This action assumes that the JS responses are being invoked from the context of the products/show view.
     @review = @product.reviews.build(review_params)
     @review.user = current_user
 
     respond_to do |format|
       if @review.save
         format.html { redirect_to products_path, notice: 'Review created successfully.' }
-        format.js {}
+        format.js
       else
         format.html { render 'products/show' }
-        format.js {}
+        format.js # Logic inside create.js.erb will determine what action is taken. If there are errors, it will display them.
       end
     end
   end
