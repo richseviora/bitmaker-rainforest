@@ -1,3 +1,6 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'products/product_show', 'data-turbolinks-track' => true %>
+<% end %>
 <div class="row">
   <%= content_tag(:div, content_tag(:h2, @product.name), class: 'col-md-12') %>
 </div>
@@ -30,28 +33,10 @@
     <div class="row">
       <div class="col-md-12">
         <h4>New Review</h4>
-        <%= form_for ([@product, @review]) do |f| %>
-            <% if @review.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        <%= render partial:  'review_form' %>
+      </div>
+    </div>
 
-                  <ul>
-                    <% @review.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                  </ul>
-                </div>
-            <% end %>
-            <div class="field">
-              <%= f.label :comment %>
-              <br/>
-              <%= f.text_area :comment %>
-            </div>
-            <div class="actions">
-              <%= f.submit %>
-            </div>
-            </div></div>
-        <% end %>
 
 <% else %>
     <p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
