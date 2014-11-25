@@ -6,7 +6,14 @@
 $('#error_explanation').html("<%= j(render partial: 'products/product_review_error') %>");
 <% else %>
 //noinspection JSJQueryEfficiency
-$('#error_explanation').html("");
-$('#reviews').append("<%= j(render partial: 'products/product_review', locals: {review: @review}) %>");
+$('#error_explanation').html(""); // Empties the error section.
+
+var reviews = $('#reviews'); reviews.append("<%= j(render partial: 'products/product_review', locals: {review: @review}) %>");
+var new_review = reviews.find('p:last-of-type');
+$('html, body').animate({
+    scrollTop: new_review.offset().top
+}, 2000);
+new_review.effect({effect: 'highlight', duration: 2000});
+
 $('#new_review')[0].reset(); // [0] Returns the first dom element, which allows us to use the reset command from JS. Must be called on the form element/tag itself, not the input controls.
 <% end %>
