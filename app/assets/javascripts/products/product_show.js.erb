@@ -5,7 +5,22 @@
 $(document).ready(function(){
     $('#new_review').submit(function(event){
         event.preventDefault();
-        var URL = $('#new_review').attr('action');
-        $.post(URL,{review: {comment: $('#review_comment').val()}},function(){},"script");
+        $.ajax({
+            url: $('#new_review').attr('action'),
+            type: 'POST',
+            data: {review: {comment: $('#review_comment').val()}},
+            dataType: 'script',
+            beforeSend: function(){
+                $('input[type=submit]').
+                        val('Saving').
+                        attr('disabled','disabled');
+            },
+            complete: function(){
+                $('input[type=submit]').
+                        val('Create Review').
+                        removeAttr('disabled');
+            }
+        });
     });
+
 });
