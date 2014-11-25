@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
   def index
-    @products = Product.all
+    @products = Product.order('created_at DESC').page(params[:page])
   end
 
   def show
