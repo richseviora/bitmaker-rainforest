@@ -1,0 +1,5 @@
+    <div class="col-md-3">
+      <%= link_to(product.name, product_path(product)) %>
+      <%= product.description %>
+      <%= number_to_currency(product.price_in_dollars) %>
+    </div>

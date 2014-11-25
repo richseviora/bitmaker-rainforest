@@ -1,11 +1,9 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'products/products_index', 'data-turbolinks-track' => true %>
+<% end %>
 <h1>Products <small><%= page_entries_info @products %></small></h1>
 <%= content_tag :div, link_to('New Product', new_product_path, class: 'col-md-12'), class: 'row' %>
-<div class="row">
-  <% @products.each do |product| %>
-      <div class="col-md-3">
-        <%= link_to(product.name, product_path(product)) %>
-        <%= product.description %>
-        <%= number_to_currency(product.price_in_dollars) %>
-      </div>
-  <% end %></div>
+<div class="row" id="products">
+<%= render @products %>
+</div>
 <%= paginate @products %>
